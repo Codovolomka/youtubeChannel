@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JS Objects creation</title>
     <style>
+    /* Internal CSS */
         body {
             background-color: #424242;
             font-size: 22px;
@@ -16,80 +17,85 @@
         }
     </style>
 </head>
+<!--Start BODY section-->
 <body>
    <div id="content">
        <div id="strict"></div>
        <div id="literal"></div>
        <div id="constructor"></div>
-   </div> 
-   <script>
-   
-    /* CLASS NOTATION */
+   </div>
+<script>
 
-   class User {
-       constructor(user, email, password) {
-           this.user = user;
-           this.email = email;
-           this.password = password;
-       }
-       // User.online(); - статический метод класса
-       static online() {
-           console.log("Online static method called");
-       }
-       // статический метод объекта
-       register() {
-           return this.user + " is now registered";
-       }
-   }
+/* CLASS NOTATION */
 
-   /* CLASS INHERITANCE NOTATION */
+class User {
+    constructor(user, email, password) {
+        this.user = user;
+        this.email = email;
+        this.password = password;
+    }
+    // User.online(); - статический метод класса
+    static online() {
+        console.log("Online static method called");
+    }
+    // статический метод объекта
+    register() {
+        return this.user + " is now registered";
+    }
+}
 
-   class Named extends User {
-       constructor(user, email, password, id) {
-            super(user, email);
-            this.password = "Override string";
-            this.id = id;
-       }
-       // получить значение
-       get userAndEmail() {
-           // использование "template literals" (шаблонные строки)
-           // символ обратной кавычки обычно расположен
-           // на кнопке с буквой Ё (рядом с клавишей ESC)
-           return `Username:\t${this.user} \nEmail:\t\t${this.email}`;
-       }
-       // установить значение
-       set username(u) {
-            this.user = u;
-       }
+/* CLASS INHERITANCE NOTATION */
 
-       //register() { return "Override method register()"}
-       show() { return this.register() + " I'm extends User class"};
-   }
+class Named extends User {
+    constructor(user, email, password, id) {
+        super(user, email);
+        this.password = "Override string";
+        this.id = id;
+    }
+    // получить значение
+    get userAndEmail() {
+        // использование "template literals" (шаблонные строки)
+        // символ обратной кавычки обычно расположен
+        // на кнопке с буквой Ё (рядом с клавишей ESC)
+        return `Username:\t${this.user}\nEmail:\t\t${this.email}`;
+    }
+    // установить значение
+    set username(u) {
+        this.user = u;
+    }
 
-   const paul = new Named("Alex", "alex@panamail.com", "cd", "ddd");
+    //register() { return "Override method register()"}
+    show() { return this.register() + " I'm extends User class"};
+}
 
-   console.log(paul);
-   // геттеры вызываются без скобочек
-   console.log(paul.userAndEmail);
-   // сеттеры принимают данные через присвоение значения
-   // для этого используется знак равенства
-   paul.username = "John";
-   // cеттеры вызываются без скобочек
-   console.log(paul.user);
+const alex = new Named("Alex", "alex@panamail.com", "cd", "ddd");
 
-   /* OBJECT NOTATION */
+console.log(alex);
+// геттеры вызываются без скобочек
+console.log(alex.userAndEmail);
+// сеттеры принимают данные через присвоение значения
+// для этого используется знак равенства
+alex.username = "John";
+// cеттеры вызываются без скобочек
+console.log(alex.user);
 
-   function Me(a, b, c) {
-        this.a = a;
-        this.b = b;
-        this.c = c;
-   }
+/* OBJECT NOTATION */
 
-   Me.prototype.funcMe = function() { return "Me constructor called" };
- 
-   const me = new Me("one", "two", "three");
-   console.log(me);
+function Me(a, b, c) {
+    this.a = a;
+    this.b = b;
+    this.c = c;
+}
+// добавляем статический метод - общий для всех объектов
+// созданных при помощи конструктора "Me"
+Me.prototype.funcMe = function() {
+    return "Me constructor called"
+};
+// const - не позволяет менять ссылку на объект
+const me = new Me("one", "two", "three");
 
-   </script>
+console.log(me);
+
+</script>
 </body>
 </html>
