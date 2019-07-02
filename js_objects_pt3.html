@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Objects creation</title>
+    <style>
+        body {
+            background-color: #424242;
+            font-size: 22px;
+            color: #f0f8ff;
+        }
+
+        #literal {
+            margin: 5% 0 5%;
+        }
+    </style>
+</head>
+<body>
+   <div id="content">
+       <div id="strict"></div>
+       <div id="literal"></div>
+       <div id="constructor"></div>
+   </div> 
+   <script>
+   
+    /* CLASS NOTATION */
+
+   class User {
+       constructor(user, email, password) {
+           this.user = user;
+           this.email = email;
+           this.password = password;
+       }
+       // User.online(); - статический метод класса
+       static online() {
+           console.log("Online static method called");
+       }
+       // статический метод объекта
+       register() {
+           return this.user + " is now registered";
+       }
+   }
+
+   /* CLASS INHERITANCE NOTATION */
+
+   class Named extends User {
+       constructor(user, email, password, id) {
+            super(user, email);
+            this.password = "Override string";
+            this.id = id;
+       }
+       //register() { return "Override method register()"}
+       show() { return this.register() + " I'm extends User class"};
+   }
+
+   const paul = new Named("ab", "bc", "cd", "ddd");
+
+   console.log(paul);
+
+   /* OBJECT NOTATION */
+
+   function Me(a, b, c) {
+        this.a = a;
+        this.b = b;
+        this.c = c;
+   }
+
+   Me.prototype.funcMe = function() { return "Me constructor called" };
+ 
+   const me = new Me("one", "two", "three");
+   console.log(me);
+
+   </script>
+</body>
+</html>
