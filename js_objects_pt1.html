@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Objects creation</title>
+    <style>
+        body {
+            background-color: #424242;
+            font-size: 22px;
+            color: #f0f8ff;
+        }
+
+        #literal {
+            margin: 5% 0 5%;
+        }
+    </style>
+</head>
+<body>
+   <div id="content">
+       <div id="strict"></div>
+       <div id="literal"></div>
+       <div id="constructor"></div>
+   </div> 
+   <script>
+
+
+/*== LITERAL NOTATION ==*/
+
+// создаём переменную
+// и сохраняем в нее наш объект
+let lo = { //заполняем объект парами "ключ=>значение"
+    name: "Literal object",
+    init: "Curly brackets",
+    funcLo: function() { // создаем метод объекта
+        // возвращаем строку после вызова метода из кода
+        return 'Literal object method say "Hi"'
+    }
+};
+
+// показываем содержимое объекта
+// в веб-консоли
+console.log(lo);
+
+// создаём конструктор объекта
+// имя конструктора - всегда с заглавной буквы
+
+/*== CONSTRUCTOR NOTATION ==*/
+
+function Big(a, b) {
+    
+    this.first = a; //сохраняем значение "a"
+    this.second = b; // сохраняем значение "b"
+    this.funcBig = function() { // создаем метод объекта
+        // возвращаем строку после вызова метода из кода
+        return "Big constructor";
+    }
+    
+};
+
+// создаём переменную
+// и сохраняем в неё новый объект
+// вызываем конструктор Big
+let co = new Big("Constructor object", "new keyword");
+
+console.log(co);
+
+   </script>
+</body>
+</html>
