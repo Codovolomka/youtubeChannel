@@ -50,13 +50,32 @@
             this.password = "Override string";
             this.id = id;
        }
+       // получить значение
+       get userAndEmail() {
+           // использование "template literals" (шаблонные строки)
+           // символ обратной кавычки обычно расположен
+           // на кнопке с буквой Ё (рядом с клавишей ESC)
+           return `Username:\t${this.user} \nEmail:\t\t${this.email}`;
+       }
+       // установить значение
+       set username(u) {
+            this.user = u;
+       }
+
        //register() { return "Override method register()"}
        show() { return this.register() + " I'm extends User class"};
    }
 
-   const paul = new Named("ab", "bc", "cd", "ddd");
+   const paul = new Named("Alex", "alex@panamail.com", "cd", "ddd");
 
    console.log(paul);
+   // геттеры вызываются без скобочек
+   console.log(paul.userAndEmail);
+   // сеттеры принимают данные через присвоение значения
+   // для этого используется знак равенства
+   paul.username = "John";
+   // cеттеры вызываются без скобочек
+   console.log(paul.user);
 
    /* OBJECT NOTATION */
 
