@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JS Objects creation</title>
+    <title>JS Objects Class creation</title>
     <style>
     /* Internal CSS */
         body {
@@ -24,6 +24,7 @@
        <div id="literal"></div>
        <div id="constructor"></div>
    </div>
+<!--Start SCRIPT section-->
 <script>
 
 /* CLASS NOTATION */
@@ -89,7 +90,7 @@ function Me(a, b, c) {
 // добавляем статический метод - общий для всех объектов
 // созданных при помощи конструктора "Me"
 Me.prototype.funcMe = function() {
-    return "Me constructor called"
+    return "Me constructor called";
 };
 // const - не позволяет менять ссылку на объект
 const me = new Me("one", "two", "three");
