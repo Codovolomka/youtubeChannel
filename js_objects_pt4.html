@@ -1,0 +1,88 @@
+<!DOCTYPE html></script>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Objects Class Ccreation</title>
+    <!-- include Google Fonts: DM Sans and Literata -->
+    <link href="https://fonts.googleapis.com/css?family=DM+Sans|Literata&display=swap" rel="stylesheet">    <style>
+    /* Internal CSS */
+        body {
+            font-family: 'Literata', serif;
+            /* font-family: 'DM Sans', sans-serif; */
+            background-color: #424242;
+            font-size: 20px;
+            color: #f0f8ff;
+        }
+
+        #literal {
+            margin: 5% 0 5%;
+        }
+    </style>
+</head>
+<!--Start BODY section-->
+<body>
+   <div id="content">
+       <div id="strict"></div>
+       <div id="literal"></div>
+       <div id="constructor"></div>
+   </div>
+<!--Start SCRIPT section-->
+<script>
+
+
+// все объекты - функции (указывают на конструктор)
+/* console.log(Object); => ƒ Object() { [native code] }
+console.log(Array); => ƒ Array() { [native code] }
+console.log(Function); => ƒ Function() { [native code] } */
+
+/*== LITERAL NOTATION ==*/
+
+const lo = { // литеральный объект
+    name: "Literal object",
+    init: "Curly brackets",
+    funcLo: function() { 
+        return 'Literal object method say "Hi"'
+    }
+};
+
+console.log(lo);
+
+/*== OBJECT NOTATION ==*/
+
+function Me(a, b) { // конструктор объекта
+    this.name = a;
+    this.init = b;
+}
+// добавление статического метода объекта
+Me.prototype.funcMe = function() {
+    return "Me constructor called";
+};
+// ключевое слово "new" меняет ссылку первого __proto__
+// на адрес свойства prototype создаваемого объекта
+// это действие затирает стандартный Object.prototype
+const me = new Me("one", "two");
+
+console.log(me);
+
+// function Fn() {}; - создали функцию-конструктор
+// const test = new Fn(); - сохранили новый объект в переменной
+/* console.log(test.__proto__ === Fn.prototype); => true
+console.log(test.__proto__.__proto__ === Object.prototype); => true
+console.log(test.__proto__.__proto__.__proto__ === null); => true */
+// тройная проверка свойства __proto__ по цепочке наследования
+
+const nullObj = Object.create(null);
+
+console.log(nullObj); // по-настоящему пустой объект
+
+// добавляет возращаемые значения на html-страницу
+/* const con = document.getElementById('constructor');
+con.innerText = me.funcMe();
+
+const lit = document.getElementById('literal');
+lit.innerText = lo.funcLo(); */
+
+</script>
+</body>
+</html>
