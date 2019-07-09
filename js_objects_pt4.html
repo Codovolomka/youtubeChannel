@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JS Objects Class Ccreation</title>
+    <title>JS Objects Class Creation</title>
     <!-- include Google Fonts: DM Sans and Literata -->
     <link href="https://fonts.googleapis.com/css?family=DM+Sans|Literata&display=swap" rel="stylesheet">    <style>
     /* Internal CSS */
@@ -31,9 +31,14 @@
 <script>
 
 
-// все объекты в Java Script - функции (указывают на конструктор)
+// все объекты в Java Script наследуются от Object
+// глобальный объект Function - не исключение
 /* console.log(Object); => ƒ Object() { [native code] }
 console.log(Function); => ƒ Function() { [native code] } */
+
+// При создании функции в неё добавляется свойство prototype
+// это свойство указывает на прототип-объекта
+// свойство constructor в свою очередь хранит ссылку на prototype
 
 /*== LITERAL NOTATION ==*/
 
