@@ -33,17 +33,15 @@
 
 // все объекты в Java Script наследуются от Object
 // глобальный объект Function - не исключение
-/* console.log(Object); => ƒ Object() { [native code] }
-console.log(Function); => ƒ Function() { [native code] }
-Function instanceof Object; => true*/
+// Function instanceof Object; => true
 
 // При создании функции в неё добавляется свойство prototype
-// это свойство указывает на прототип-объекта
-// у свойства prototype создаётся дочернее свойство constructor
+// оно указывает на прототип-объекта.
+// У свойства prototype создаётся дочернее свойство constructor
 // в этом свойстве хранится ссылка на функцию-конструктор
-// из которой создаётся объект. Это можно отобразить кодом.
-// Предположим, что объект был создан из конструктора Demo.
-// Demo.prototype = { constructor = Demo; ... остальные свойства объекта }
+// из которой создаётся объект. Предположим, что объект был создан
+// из конструктора Demo:
+// Demo.prototype = { constructor = Demo.prototype; ... остальные свойства объекта }
     
 
 /*== LITERAL NOTATION ==*/
