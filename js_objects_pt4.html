@@ -31,9 +31,8 @@
 <script>
 
 
-// все объекты - функции (указывают на конструктор)
+// все объекты в Java Script - функции (указывают на конструктор)
 /* console.log(Object); => ƒ Object() { [native code] }
-console.log(Array); => ƒ Array() { [native code] }
 console.log(Function); => ƒ Function() { [native code] } */
 
 /*== LITERAL NOTATION ==*/
@@ -58,15 +57,15 @@ function Me(a, b) { // конструктор объекта
 Me.prototype.funcMe = function() {
     return "Me constructor called";
 };
-// ключевое слово "new" меняет ссылку первого __proto__
-// на адрес свойства prototype создаваемого объекта
-// это действие затирает стандартный Object.prototype
+// ключевое слово "new" пересохраняет ссылку
+// на свойство prototype из функции-конструктора объекта
+// в свойство __proto__ созданного объекта
 const me = new Me("one", "two");
 
 console.log(me);
 
 // function Fn() {}; - создали функцию-конструктор
-// const test = new Fn(); - сохранили новый объект в переменной
+// const test = new Fn(); - создали и сохранили новый объект в переменной
 /* console.log(test.__proto__ === Fn.prototype); => true
 console.log(test.__proto__.__proto__ === Object.prototype); => true
 console.log(test.__proto__.__proto__.__proto__ === null); => true */
