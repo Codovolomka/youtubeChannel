@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JS Objects Class Ccreation</title>
+    <title>JS Objects Class Creation</title>
     <!-- include Google Fonts: DM Sans and Literata -->
     <link href="https://fonts.googleapis.com/css?family=DM+Sans|Literata&display=swap" rel="stylesheet">    <style>
     /* Internal CSS */
@@ -31,10 +31,18 @@
 <script>
 
 
-// все объекты - функции (указывают на конструктор)
-/* console.log(Object); => ƒ Object() { [native code] }
-console.log(Array); => ƒ Array() { [native code] }
-console.log(Function); => ƒ Function() { [native code] } */
+// все объекты в Java Script наследуются от Object
+// глобальный объект Function - не исключение
+// Function instanceof Object; => true
+
+// При создании функции в неё добавляется свойство prototype
+// оно указывает на прототип-объекта.
+// У свойства prototype создаётся дочернее свойство constructor
+// в этом свойстве хранится ссылка на функцию-конструктор
+// из которой создаётся объект. Предположим, что объект был создан
+// из конструктора Demo:
+// Demo.prototype = { constructor = Demo.prototype; ... остальные свойства объекта }
+    
 
 /*== LITERAL NOTATION ==*/
 
@@ -58,15 +66,15 @@ function Me(a, b) { // конструктор объекта
 Me.prototype.funcMe = function() {
     return "Me constructor called";
 };
-// ключевое слово "new" меняет ссылку первого __proto__
-// на адрес свойства prototype создаваемого объекта
-// это действие затирает стандартный Object.prototype
+// ключевое слово "new" пересохраняет ссылку
+// на свойство prototype из функции-конструктора объекта
+// в свойство __proto__ созданного объекта
 const me = new Me("one", "two");
 
 console.log(me);
 
 // function Fn() {}; - создали функцию-конструктор
-// const test = new Fn(); - сохранили новый объект в переменной
+// const test = new Fn(); - создали и сохранили новый объект в переменной
 /* console.log(test.__proto__ === Fn.prototype); => true
 console.log(test.__proto__.__proto__ === Object.prototype); => true
 console.log(test.__proto__.__proto__.__proto__ === null); => true */
